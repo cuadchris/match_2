@@ -3,12 +3,12 @@ import './App.css';
 import SingleCard from './components/SingleCard';
 
 const cardImages = [
-  { src: '/img/helmet-1.png', matched: false },
-  { src: '/img/potion-1.png', matched: false },
-  { src: '/img/ring-1.png', matched: false },
-  { src: '/img/scroll-1.png', matched: false },
-  { src: '/img/shield-1.png', matched: false },
-  { src: '/img/sword-1.png', matched: false },
+  { src: '/img/delilah-1.png', matched: false },
+  { src: '/img/delilah-2.png', matched: false },
+  { src: '/img/autumn-1.JPG', matched: false },
+  { src: '/img/autumn-2.JPG', matched: false },
+  { src: '/img/jubilee-1.JPG', matched: false },
+  { src: '/img/jubilee-2.JPG', matched: false },
 ];
 
 function App() {
@@ -16,10 +16,12 @@ function App() {
   const [turns, setTurns] = useState(0);
   const [choiceOne, setChoiceOne] = useState(null);
   const [choiceTwo, setChoiceTwo] = useState(null);
+  const [disabled, setDisabled] = useState(false);
 
   // useEffect to compare choices
   useEffect(() => {
     if (choiceOne && choiceTwo) {
+      setDisabled(true);
       if (choiceOne.src === choiceTwo.src) {
         setCards((prev) => {
           return prev.map((card) => {
@@ -37,12 +39,18 @@ function App() {
     }
   }, [choiceOne, choiceTwo]);
 
+  // useeffect that automatically starts a new game
+  useEffect(() => {
+    shuffleCards();
+  }, []);
+
   // shuffle cards for new game
   const shuffleCards = () => {
     const shuffledCards = [...cardImages, ...cardImages]
       .sort(() => Math.random() - 0.5)
       .map((card) => ({ ...card, id: Math.random() }));
-
+    setChoiceOne(null);
+    setChoiceTwo(null);
     setCards(shuffledCards);
     setTurns(0);
   };
@@ -52,6 +60,7 @@ function App() {
     setChoiceOne(null);
     setChoiceTwo(null);
     setTurns((prev) => prev + 1);
+    setDisabled(false);
   };
 
   // handle a choice
@@ -64,7 +73,7 @@ function App() {
     <div className='App'>
       <h1>Match 2</h1>
       <button onClick={shuffleCards}>New Game</button>
-
+      <p>Turns: {turns}</p>
       <div className='card-grid'>
         {cards.map((card) => (
           <SingleCard
@@ -72,6 +81,7 @@ function App() {
             card={card}
             handleChoice={handleChoice}
             flipped={card === choiceOne || card === choiceTwo || card.matched}
+            disabled={disabled}
           />
         ))}
       </div>
