@@ -3,12 +3,12 @@ import './App.css';
 import SingleCard from './components/SingleCard';
 
 const cardImages = [
-  { src: '/img/delilah-1.png', matched: false },
-  { src: '/img/Delilah-2.png', matched: false },
-  { src: '/img/autumn-1.jpg', matched: false },
-  { src: '/img/autumn-2.jpg', matched: false },
-  { src: '/img/jubilee-1.jpg', matched: false },
-  { src: '/img/jubilee-2.jpg', matched: false },
+  { src: '/static/images/delilah-1.png', matched: false },
+  { src: '/static/images/Delilah-2.png', matched: false },
+  { src: '/static/images/autumn-1.jpg', matched: false },
+  { src: '/static/images/autumn-2.jpg', matched: false },
+  { src: '/static/images/jubilee-1.jpg', matched: false },
+  { src: '/static/images/jubilee-2.jpg', matched: false },
 ];
 
 function App() {
