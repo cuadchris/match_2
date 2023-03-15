@@ -4,11 +4,11 @@ import SingleCard from './components/SingleCard';
 
 const cardImages = [
   { src: '/img/delilah-1.png', matched: false },
-  { src: '/img/delilah-2.png', matched: false },
-  { src: '/img/autumn-1.JPG', matched: false },
-  { src: '/img/autumn-2.JPG', matched: false },
-  { src: '/img/jubilee-1.JPG', matched: false },
-  { src: '/img/jubilee-2.JPG', matched: false },
+  { src: '/img/Delilah-2.png', matched: false },
+  { src: '/img/autumn-1.jpg', matched: false },
+  { src: '/img/autumn-2.jpg', matched: false },
+  { src: '/img/jubilee-1.jpg', matched: false },
+  { src: '/img/jubilee-2.jpg', matched: false },
 ];
 
 function App() {

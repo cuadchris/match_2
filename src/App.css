@@ -3,9 +3,8 @@
   margin: 40px auto;
 }
 img {
-  height: 175px;
+  height: 170px;
   width: 200px;
-  object-fit: cover;
 }
 button {
   background: none;
